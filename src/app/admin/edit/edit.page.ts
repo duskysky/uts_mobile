@@ -63,7 +63,7 @@ export class EditPage implements OnInit {
       const model = this.form.value.model;
       const price = this.form.value.price;
       const stock = this.form.value.stock;
-      this.homeServ.deleteBarang(this.model);
+      this.homeServ.deleteBarang(this.loadbrg);
       this.homeServ.editBarang(title, imageUrl, brand, model, price, stock);
       this.route.navigate(['/admin']);
       this.presentToast();
