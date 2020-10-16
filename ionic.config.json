@@ -1,0 +1,7 @@
+{
+  "name": "uts_ulang",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
