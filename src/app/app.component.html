@@ -1,3 +1,42 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <ion-menu side="start" menuId="adminMenu" contentId="main">
+
+    <ion-header>
+      <ion-toolbar color="wind">
+        <ion-title>MooMoo's Computer Store</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="heigh" color="flower">
+      <ion-menu-toggle menu="adminMenu" class="menu-main">
+        <ion-item routerLink="/home" color="flower">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle menu="adminMenu" >
+        <ion-item routerLink="/admin" color="flower">
+          <ion-icon name="library-outline" slot="start"></ion-icon>
+          <ion-label>Admin</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle menu="adminMenu" class="menu">
+        <ion-item routerLink="/aboutapp" color="flower">
+          <ion-icon name="pizza-outline" slot="start"></ion-icon>
+          <ion-label>About App</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle menu="adminMenu">
+        <ion-item routerLink="/home" color="flower" >
+          <ion-icon name="exit-outline" slot="start"></ion-icon>
+          <ion-label >Exit</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+    </ion-content>
+  </ion-menu>
 </ion-app>

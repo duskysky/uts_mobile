@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: ':model',
+    loadChildren: () => import('./detilitem/detilitem.module').then( m => m.DetilitemPageModule)
   }
 ];
 

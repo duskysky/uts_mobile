@@ -1,20 +1,135 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="wind">
+    <ion-buttons>
+      <ion-button slot="start">
+        <ion-menu-button menu="adminMenu"></ion-menu-button>
+      </ion-button>
+
+      <ion-title>MooMoo's Store</ion-title>
+
+      <ion-button routerLink="/grid" slot="end">
+        <ion-icon name="grid-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="flower">
+  <ion-grid>
+    <ion-list>
+      <ion-card *ngFor="let barang of barangs" [routerLink]="['./',barang.model]" color="flower">
+        <ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+          <ion-col size="4" size-md="2" offset-md="0">
+            <ion-img [src]="barang.imageUrl" class="ion-padding-top"></ion-img>
+          </ion-col>
+
+          <ion-col size="6" size-md="4" offset-md="0">
+            <ion-item color="flower" style="width: 100%">
+              <ion-label>{{barang.brand}} - {{barang.model}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Rp. {{barang.price}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Tersedia: {{barang.stock}}</ion-label>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      </ion-card>
+    </ion-list>
+  </ion-grid>
+  <!--<ion-grid>
+    <ion-list>
+      <ion-card *ngFor="let cpu of cpus" [routerLink]="['./',cpu.title]" color="flower">
+        <ion-row>
+          <ion-col size="4" size-md="2" offset-md="0">
+            <ion-img [src]="cpu.imageUrl" class="ion-padding-top"></ion-img>
+          </ion-col>
+
+          <ion-col size="6" size-md="4" offset-md="0">
+            <ion-item color="flower" style="width: 100%">
+              <ion-label>{{cpu.title}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Rp. {{cpu.price}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Tersedia: {{cpu.stock}}</ion-label>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card *ngFor="let gpu of gpus" [routerLink]="['./home/detil/detilgpu',gpu.title]" color="flower">
+        <ion-row>
+          <ion-col size="4" size-md="2" offset-md="0">
+            <ion-img [src]="gpu.imageUrl" class="ion-padding-top"></ion-img>
+          </ion-col>
+
+          <ion-col size="6" size-md="4" offset-md="0">
+            <ion-item color="flower" style="width: 100%">
+              <ion-label>{{gpu.title}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Rp. {{gpu.price}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Tersedia: {{gpu.stock}}</ion-label>
+            </ion-item>
+          </ion-col>
+
+          <ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card *ngFor="let ram of rams" [routerLink]="['./',ram.title]" color="flower">
+        <ion-row>
+          <ion-col size="4" size-md="2" offset-md="0">
+            <ion-img [src]="ram.imageUrl" class="ion-padding-top"></ion-img>
+          </ion-col>
+
+          <ion-col size="6" size-md="4" offset-md="0">
+            <ion-item color="flower" style="width: 100%">
+              <ion-label>{{ram.title}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Rp. {{ram.price}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Tersedia: {{ram.stock}}</ion-label>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      </ion-card>
+
+      <ion-card *ngFor="let mb of mbs" [routerLink]="['./',mb.title]" color="flower">
+        <ion-row>
+          <ion-col size="4" size-md="2" offset-md="0">
+            <ion-img [src]="mb.imageUrl" class="ion-padding-top"></ion-img>
+          </ion-col>
+
+          <ion-col size="6" size-md="4" offset-md="0">
+            <ion-item color="flower">
+              <ion-label>{{mb.title}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Rp. {{mb.price}}</ion-label>
+            </ion-item>
+            <ion-item color="flower">
+              <ion-label>Tersedia :{{mb.stock}}</ion-label>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+      </ion-card>
+
+    </ion-list>
+  </ion-grid>-->
 </ion-content>

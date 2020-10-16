@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="wind">
+
+    <ion-buttons>
+      <ion-button slot="start">
+        <ion-menu-button menu="adminMenu"></ion-menu-button>
+      </ion-button>
+
+      <ion-title>Admin</ion-title>
+
+      <ion-button slot="end">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let barang of barangs" #slidingItem>
+      <ion-item-options side="start">
+        <ion-item-option (click)="delbrg(barang, slidingItem)" color="wind">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+      <ion-item [routerLink]="['./',barang.id]" style="width: 100%" color="flower">
+        <ion-item-start style="padding: 10px">
+          <ion-img [src]="barang.imageUrl" slot="start" style="width: 130px; height: 130px"></ion-img>
+        </ion-item-start>
+        <ion-item color="flower">
+        </ion-item>
+        <ion-item-content>
+          <ion-label>{{barang.title}}</ion-label>
+          <ion-label>{{barang.brand}}</ion-label>
+          <ion-label>{{barang.model}}</ion-label>
+        </ion-item-content>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="delbrg(barang, slidingItem)" color="wind">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+
+  </ion-list>
+</ion-content>
