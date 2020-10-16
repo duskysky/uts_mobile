@@ -8,7 +8,7 @@ export class ServiceeService {
   private barangs: Barang[] = [
     {
       id: 'b1',
-      imageUrl: '',
+      imageUrl: 'https://www.intel.co.id/content/dam/products/hero/foreground/processor-badge-xeon-1x1.png.rendition.intel.web.550.550.png',
       title: 'CPU',
       brand: 'Intel',
       model: 'Xeon D-1602',
@@ -23,7 +23,7 @@ export class ServiceeService {
     },
     {
       id: 'b2',
-      imageUrl: '',
+      imageUrl: 'https://www.nvidia.com/content/dam/en-zz/Solutions/shop/nvidia-consumer-store-portal-geforce-2080-ti-um@2x.png',
       title: 'GPU',
       brand: 'NVIDIA',
       model: 'GeForce RTX 2080 Ti',
@@ -33,7 +33,7 @@ export class ServiceeService {
     },
     {
       id: 'b3',
-      imageUrl: '',
+      imageUrl: 'https://www.teamgroupinc.com/en/upload/product_color_b/74e2ecbed01cb8b9b00be2a7400ac6fb.jpg',
       title: 'RAM',
       brand: 'ELITE',
       model: 'PLUS U-DIMM',
@@ -46,7 +46,7 @@ export class ServiceeService {
     },
     {
       id: 'b4',
-      imageUrl: '',
+      imageUrl: 'https://www.computerlounge.co.nz/data/media/images/catalogue/Products2/Components/Motherboards/ASUS/34823_1.jpg?maxheight=950&maxwidth=600&quality=100&404=default.jpg',
       title: 'Motherboard',
       brand: 'MSI',
       model: 'MEG Z490 GODLIKE',
