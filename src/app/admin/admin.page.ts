@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AlertController, IonItemSliding, ModalController, NavController, ToastController} from '@ionic/angular';
 import {Barang} from '../model';
 import {ServiceeService} from '../servicee.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {Modal1Component} from '../components/modal1/modal1.component';
 
 @Component({
@@ -16,10 +16,9 @@ export class AdminPage implements OnInit {
   constructor(private homeSer: ServiceeService,
               private alertCtrl: AlertController,
               private toastCtrl: ToastController,
-              private route: Router,
+              private router: Router,
               private navCtrl: NavController,
-              private modalCtrl: ModalController,
-              private activatedRoute: ActivatedRoute) { }
+              private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
@@ -34,7 +33,7 @@ export class AdminPage implements OnInit {
 
   editbrg(barang: Barang, slidingItem: IonItemSliding){
     slidingItem.close();
-    this.route.navigate(['/admin/edit']);
+    this.router.navigate(['/admin/edit']);
   }
 
   async presentModal(){
@@ -58,6 +57,7 @@ export class AdminPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.homeSer.deleteBarang(barang);
+            this.presentToast();
           }
         }
       ]
