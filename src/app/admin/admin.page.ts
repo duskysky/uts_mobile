@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController, IonItemSliding, ToastController} from '@ionic/angular';
+import {AlertController, IonItemSliding, ModalController, NavController, ToastController} from '@ionic/angular';
 import {Barang} from '../model';
 import {ServiceeService} from '../servicee.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Modal1Component} from '../components/modal1/modal1.component';
 
 @Component({
   selector: 'app-admin',
@@ -11,13 +12,17 @@ import {Router} from '@angular/router';
 })
 export class AdminPage implements OnInit {
   barangs: Barang[];
-  barang: Barang;
+
   constructor(private homeSer: ServiceeService,
               private alertCtrl: AlertController,
               private toastCtrl: ToastController,
-              private route: Router) { }
+              private route: Router,
+              private navCtrl: NavController,
+              private modalCtrl: ModalController,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
   }
   ionViewWillEnter(){
     this.barangs = this.homeSer.getBarangs();
@@ -27,20 +32,23 @@ export class AdminPage implements OnInit {
     // this.rams = this.homeSer.getRams();
   }
 
-  delbrg(barang: Barang, slidingItem: IonItemSliding){
+  editbrg(barang: Barang, slidingItem: IonItemSliding){
     slidingItem.close();
-    this.presentAlert();
-    this.deleteBarang();
+    this.route.navigate(['/admin/edit']);
   }
-  deleteBarang(){
-    this.homeSer.deleteBarang(this.barang.model);
-    this.route.navigate(['/admin']);
-    this.presentToast();
+
+  async presentModal(){
+    const modal = await this.modalCtrl.create({
+      component: Modal1Component,
+    });
+    return await modal.present();
   }
-  async presentAlert(){
+
+  async presentAlert(barang: Barang, slidingItem: IonItemSliding){
+    slidingItem.close();
     const alert = await this.alertCtrl.create({
       header: 'Are You Sure?',
-      message: 'Do you really want to delete this recipe',
+      message: 'Do you really want to delete this Item?',
       buttons: [
         {
           text: 'Cancel',
@@ -48,11 +56,14 @@ export class AdminPage implements OnInit {
         },
         {
           text: 'Delete',
-          handler: () => this.deleteBarang()
+          handler: () => {
+            this.homeSer.deleteBarang(barang);
+          }
         }
       ]
     });
     await alert.present();
+    alert.onDidDismiss().then(() => this.barangs = this.homeSer.getBarangs());
   }
 
   async presentToast(){

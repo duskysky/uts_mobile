@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="wind">
+
+    <ion-buttons>
+      <ion-button slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-button>
+
+      <ion-title>Edit</ion-title>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="flower">
+  <form [formGroup]= "form">
+    <ion-list>
+      <ion-item color="wind">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item color="wind">
+        <ion-label position="floating">Image URL</ion-label>
+        <ion-input type="text" formControlName="imageUrl"></ion-input>
+      </ion-item>
+      <ion-item color="wind">
+        <ion-label position="floating">Brand</ion-label>
+        <ion-input type="email" formControlName="brand"></ion-input>
+      </ion-item>
+      <ion-item color="wind">
+        <ion-label position="floating">Model</ion-label>
+        <ion-input type="text" formControlName="model"></ion-input>
+      </ion-item>
+      <ion-item color="wind">
+        <ion-label position="floating">Price</ion-label>
+        <ion-input type="text" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-item color="wind">
+        <ion-label position="floating">Stock</ion-label>
+        <ion-input type="text" formControlName="stock"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" color="tertiary" expand="block" (click)="onSave()">
+      Save
+    </ion-button>
+  </form>
+</ion-content>

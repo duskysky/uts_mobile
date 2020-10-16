@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="wind">
+
+    <ion-buttons>
+      <ion-button slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-button>
+
+      <ion-title>Add</ion-title>
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">ImageUrl</ion-label>
+        <ion-input type="imageUrl"
+                   ngModel
+                   name="imageUrl"
+                   required
+                   imageUrl></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">title</ion-label>
+        <ion-input type="title"
+                   ngModel
+                   name="title"
+                   required
+                   title></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Brand</ion-label>
+        <ion-input type="brand"
+                   ngModel
+                   name="brand"
+                   required
+                   brand></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input type="model"
+                   ngModel
+                   name="model"
+                   required
+                   model></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">price</ion-label>
+        <ion-input type="price"
+                   ngModel
+                   name="price"
+                   required
+                   price></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">stock</ion-label>
+        <ion-input type="stock"
+                   ngModel
+                   name="stock"
+                   required
+                   stock></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">jenis</ion-label>
+        <ion-select [(ngModel)]="selectedValue" (ionChange)="onChange($event)" interface="action-sheet">
+          <ion-select-option *ngFor="let item of data" [value]="item.id">
+            {{item.name}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <ion-button type="submit" color="primary" expand="block" (click)="onSubmit(form)" [disabled]="!form.valid">
+      Add
+    </ion-button>
+  </form>
+</ion-content>
+

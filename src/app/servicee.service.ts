@@ -29,8 +29,7 @@ export class ServiceeService {
       model: 'GeForce RTX 2080 Ti',
       price: 1000000,
       stock: 10,
-      detail: {
-      }
+      detail: {}
     },
     {
       id: 'b3',
@@ -60,18 +59,50 @@ export class ServiceeService {
     },
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
-  getBarangs(){
+  getBarangs() {
     return [...this.barangs];
   }
-  getBarang(BarangModel: string){
-    return {...this.barangs.find(barang => { return barang.model === BarangModel;
-      })};
+
+  getBarang(barangModel: string) {
+    return {
+      ...this.barangs.find(barang => {
+        return barang.model === barangModel;
+      })
+    };
   }
 
-  deleteBarang(barangModel: string){
-    this.barangs = this.barangs.filter( barang => { return barang.model !== barangModel;
+  deleteBarang(barangModel: Barang) {
+    this.barangs.splice(this.barangs.findIndex(function(del){
+      return del.model === barangModel.model;
+    }), 1);
+  }
+
+  editBarang(title: string, imageUrl: string, brand: string, model: string, price: number, stock: number) {
+    this.barangs.push({
+      id: '',
+      title,
+      imageUrl,
+      brand,
+      model,
+      price,
+      stock,
+      detail: {}
+    });
+  }
+
+  addBarang(title: string, imageUrl: string, brand: string, model: string, price: number, stock: number) {
+    this.barangs.push({
+      id: '',
+      title,
+      imageUrl,
+      brand,
+      model,
+      price,
+      stock,
+      detail: {}
     });
   }
 }

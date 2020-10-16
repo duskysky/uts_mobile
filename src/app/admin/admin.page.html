@@ -9,7 +9,7 @@
       <ion-title>Admin</ion-title>
 
       <ion-button slot="end">
-        <ion-icon name="add-outline"></ion-icon>
+        <ion-icon name="add-outline" routerLink="/admin/add"></ion-icon>
       </ion-button>
     </ion-buttons>
 
@@ -21,7 +21,7 @@
 
     <ion-item-sliding *ngFor="let barang of barangs" #slidingItem>
       <ion-item-options side="start">
-        <ion-item-option (click)="delbrg(barang, slidingItem)" color="wind">
+        <ion-item-option (click)="presentAlert(barang, slidingItem)" color="wind">
           <ion-icon name="trash-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
@@ -40,7 +40,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option (click)="delbrg(barang, slidingItem)" color="wind">
+        <ion-item-option (click)="editbrg(barang, slidingItem)" color="wind">
           <ion-icon name="pencil-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>
